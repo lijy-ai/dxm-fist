@@ -20,9 +20,7 @@ $(function() {
         ],
         repwd: function(value) {
             var pwd = $('.reg-box [name=password]').val()
-            if (pwd !== value) {
-                return '两次密码不一致！'
-            }
+            if (pwd !== value) return '两次密码不一致！';
         }
     })
     $('#form_reg').on('submit', function(e) {
@@ -36,9 +34,7 @@ $(function() {
             url: '/api/reguser',
             data: data,
             success: function(res) {
-                if (res.status !== 0) {
-                    return layer.msg(res.message)
-                }
+                if (res.status !== 0) return layer.msg(res.message);
                 layer.msg('注册成功，请登录！')
                 $('#link_login').click()
             }
@@ -51,9 +47,7 @@ $(function() {
             url: '/api/login',
             data: $(this).serialize(),
             success: function(res) {
-                if (res.status !== 0) {
-                    return layer.msg('登录失败！')
-                }
+                if (res.status !== 0) return layer.msg('登录失败！');
                 layer.msg('登录成功！')
                 localStorage.setItem('token', res.token)
                 console.log(res.token);
