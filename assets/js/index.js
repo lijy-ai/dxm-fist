@@ -31,8 +31,6 @@ function getUserInfo() {
             renderAvatar(res.data);
         }
     })
-
-
 }
 
 //渲染用户的头像
